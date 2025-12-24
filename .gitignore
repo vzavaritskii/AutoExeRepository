@@ -1,0 +1,14 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+/out/
+
+# Maven
+/target/
+
+# IntelliJ local files
+/shelf/
+/.idea/workspace.xml
+
+# Logs
+*.log
