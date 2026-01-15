@@ -3,6 +3,7 @@ package exercise.automation.page;
 import exercise.automation.common.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class SignUpEnterInfoPage extends BasePage {
 
@@ -29,5 +30,12 @@ public class SignUpEnterInfoPage extends BasePage {
                 .sendKeys("testPassword");
 
         return new SignUpEnterInfoPage(getDriver());
+    }
+
+
+    public SignUpEnterInfoPage setDateOfBirth() {
+        new Select(getDriver().findElement(By.xpath("//select[@data-qa='days']"))).selectByVisibleText("12");
+
+        return this;
     }
 }
