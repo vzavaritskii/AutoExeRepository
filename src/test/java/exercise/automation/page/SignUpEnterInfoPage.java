@@ -24,7 +24,10 @@ public class SignUpEnterInfoPage extends BasePage {
     }
 
 
-    public SignUpEnterInfoPage setName() {
-        getDriver().findElement(By.xpath("//input[@data-qa='name']")).sendKeys();
+    public SignUpEnterInfoPage setPassword() {
+        getDriver().findElement(By.xpath("//input[@data-qa='password']"))
+                .sendKeys("testPassword");
+
+        return new SignUpEnterInfoPage(getDriver());
     }
 }
