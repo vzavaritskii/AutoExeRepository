@@ -14,14 +14,14 @@ public class SignUpEnterInfoPage extends BasePage {
     public SignUpEnterInfoPage setTitleMr() {
         getDriver().findElement(By.xpath("//input[@id='id_gender1']")).click();
 
-        return new SignUpEnterInfoPage(getDriver());
+        return this;
     }
 
 
     public SignUpEnterInfoPage setTitleMrs() {
         getDriver().findElement(By.xpath("//input[@id='id_gender2']")).click();
 
-        return new SignUpEnterInfoPage(getDriver());
+        return this;
     }
 
 
@@ -29,7 +29,7 @@ public class SignUpEnterInfoPage extends BasePage {
         getDriver().findElement(By.xpath("//input[@data-qa='password']"))
                 .sendKeys("testPassword");
 
-        return new SignUpEnterInfoPage(getDriver());
+        return this;
     }
 
 
