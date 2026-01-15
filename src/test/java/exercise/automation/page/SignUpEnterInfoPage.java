@@ -33,8 +33,24 @@ public class SignUpEnterInfoPage extends BasePage {
     }
 
 
-    public SignUpEnterInfoPage setDateOfBirth() {
+    public SignUpEnterInfoPage setDayOfBirth() {
         new Select(getDriver().findElement(By.xpath("//select[@data-qa='days']"))).selectByVisibleText("12");
+
+        return this;
+    }
+
+
+    public SignUpEnterInfoPage setMonthOfBirth() {
+        new Select(getDriver().findElement(By.xpath("//select[@data-qa='months']")))
+                .selectByVisibleText("April");
+
+        return this;
+    }
+
+
+    public SignUpEnterInfoPage setYearOfBirth() {
+        new Select(getDriver().findElement(By.xpath("//select[@data-qa='years']")))
+                .selectByVisibleText("2001");
 
         return this;
     }
