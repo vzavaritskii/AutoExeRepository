@@ -68,4 +68,11 @@ public class SignUpEnterInfoPage extends BasePage {
 
         return this;
     }
+
+
+    public SignUpEnterInfoPage setFirstName() {
+        getDriver().findElement(By.xpath("//input[@id = 'first_name']")).sendKeys("TestFirstName");
+
+        return this;
+    }
 }
