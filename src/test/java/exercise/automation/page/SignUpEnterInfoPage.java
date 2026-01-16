@@ -89,4 +89,39 @@ public class SignUpEnterInfoPage extends BasePage {
 
         return this;
     }
+
+
+    public SignUpEnterInfoPage setCountry() {
+        new Select(getDriver().findElement(By.xpath("//select[@id = 'country']"))).selectByVisibleText("Australia");
+
+        return this;
+    }
+
+
+    public SignUpEnterInfoPage setState() {
+        getDriver().findElement(By.xpath("//input[@id = 'state']")).sendKeys("Victoria");
+
+        return this;
+    }
+
+
+    public SignUpEnterInfoPage setCity() {
+        getDriver().findElement(By.xpath("//input[@id = 'city']")).sendKeys("Alberton");
+
+        return this;
+    }
+
+
+    public SignUpEnterInfoPage setZipCode() {
+        getDriver().findElement(By.xpath("//input[@id = 'zipcode']")).sendKeys("3971");
+
+        return this;
+    }
+
+
+    public SignUpEnterInfoPage setMobileNumber() {
+        getDriver().findElement(By.xpath("//input[@id = 'mobile_number']")).sendKeys("+61 4 1234 5678");
+
+        return this;
+    }
 }
