@@ -55,8 +55,16 @@ public class SignUpEnterInfoPage extends BasePage {
         return this;
     }
 
+
     public SignUpEnterInfoPage toggleNewsletterCheckbox() {
         getDriver().findElement(By.xpath("//input[@id = 'newsletter']")).click();
+
+        return this;
+    }
+
+
+    public SignUpEnterInfoPage toggleSpecialOffersCheckbox() {
+        getDriver().findElement(By.xpath("//input[@id = 'optin']")).click();
 
         return this;
     }
