@@ -82,4 +82,11 @@ public class SignUpEnterInfoPage extends BasePage {
 
         return this;
     }
+
+
+    public SignUpEnterInfoPage setAddress1() {
+        getDriver().findElement(By.xpath("//input[@id = 'address1']")).sendKeys("Main street 90-210");
+
+        return this;
+    }
 }
