@@ -1,6 +1,7 @@
 package exercise.automation.page;
 
 import exercise.automation.common.BasePage;
+import exercise.automation.common.TestData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -27,7 +28,7 @@ public class SignUpEnterInfoPage extends BasePage {
 
     public SignUpEnterInfoPage setPassword() {
         getDriver().findElement(By.xpath("//input[@data-qa='password']"))
-                .sendKeys("testPassword");
+                .sendKeys(TestData.PASSWORD);
 
         return this;
     }
@@ -123,5 +124,12 @@ public class SignUpEnterInfoPage extends BasePage {
         getDriver().findElement(By.xpath("//input[@id = 'mobile_number']")).sendKeys("+61 4 1234 5678");
 
         return this;
+    }
+
+
+    public AccountCreatedPage clickCreateAccount() {
+        getDriver().findElement(By.xpath("//button[@data-qa = 'create-account']")).click();
+
+        return new AccountCreatedPage(getDriver());
     }
 }

@@ -1,8 +1,10 @@
 package exercise.automation.page;
 
 import exercise.automation.common.BasePage;
+import exercise.automation.common.TestData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.bidi.log.Log;
 
 public class LoginPage extends BasePage {
 
@@ -12,11 +14,12 @@ public class LoginPage extends BasePage {
 
 
     public LoginPage setNewUserEmail() {
-        final String NEW_USER_EMAIL = "newtestuser@gmail.com";
-        getDriver().findElement(By.xpath("//input[@data-qa='signup-email']")).sendKeys(NEW_USER_EMAIL);
+        getDriver().findElement(By.xpath("//input[@data-qa='signup-email']"))
+                .sendKeys(TestData.USER_EMAIL);
 
         return new LoginPage(getDriver());
     }
+
 
     public LoginPage setNewUserName() {
         final String NEW_USER_NAME = "newTestUserName";
@@ -25,9 +28,33 @@ public class LoginPage extends BasePage {
         return new LoginPage(getDriver());
     }
 
+
     public SignUpEnterInfoPage clickSignupButton() {
         getDriver().findElement(By.xpath("//button[@data-qa='signup-button']")).click();
 
         return new SignUpEnterInfoPage(getDriver());
+    }
+
+
+    public LoginPage setLogin() {
+        getDriver().findElement(By.xpath("//input[@data-qa = 'login-email']"))
+                .sendKeys(TestData.USER_EMAIL);
+
+        return this;
+    }
+
+
+    public LoginPage setPassword() {
+        getDriver().findElement(By.xpath("//input[@type = 'password']"))
+                .sendKeys(TestData.PASSWORD);
+
+        return this;
+    }
+
+
+    public HomePage clickLoginButton() {
+        getDriver().findElement(By.xpath("//button[@data-qa = 'login-button']")).click();
+
+        return new HomePage(getDriver());
     }
 }

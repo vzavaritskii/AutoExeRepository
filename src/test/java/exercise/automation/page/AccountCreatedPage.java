@@ -10,6 +10,7 @@ public class AccountCreatedPage extends BasePage {
         super(driver);
     }
 
+
     public HomePage clickContinueButton() {
         getDriver().findElement(By.xpath("//a[@data-qa = 'continue-button']")).click();
 
