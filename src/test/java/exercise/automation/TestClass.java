@@ -2,12 +2,15 @@ package exercise.automation;
 
 import exercise.automation.common.BaseTest;
 import exercise.automation.page.HomePage;
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TestClass extends BaseTest {
 
     @Test
-    public void test() {
+    // Test Case 1: Register User
+    public void registerUser() {
         new HomePage(getDriver())
                 .clickSignUp()
                 .setNewUserName()
@@ -26,6 +29,12 @@ public class TestClass extends BaseTest {
                 .setState()
                 .setCity()
                 .setZipCode()
-                .setMobileNumber();
+                .setMobileNumber()
+                .clickCreateAccount()
+                .clickContinueButton()
+                .clickDeleteAccount();
+
+        Assert.assertEquals(getDriver().findElement(By.xpath("//h2[@data-qa = 'account-deleted']")).getText(),
+                "ACCOUNT DELETED!");
     }
 }

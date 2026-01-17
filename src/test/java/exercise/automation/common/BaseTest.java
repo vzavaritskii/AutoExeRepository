@@ -1,5 +1,7 @@
 package exercise.automation.common;
 
+import exercise.automation.page.HomePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,6 +23,19 @@ public abstract class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://automationexercise.com/");
+
+        /*
+        new HomePage(driver)
+                .clickSignUp()
+                .setLogin()
+                .setPassword()
+                .clickLoginButton();
+
+        if (driver.getCurrentUrl().equals("https://automationexercise.com/")) {
+            driver.findElement(By.xpath("//a[@href = '/delete_account']")).click();
+        }
+
+         */
     }
 
     @AfterMethod

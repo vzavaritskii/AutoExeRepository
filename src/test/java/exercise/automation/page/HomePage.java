@@ -16,9 +16,9 @@ public class HomePage extends BasePage {
     }
 
 
-    public HomePage clickDeleteAccount() {
+    public DeleteAccountPage clickDeleteAccount() {
         getDriver().findElement(By.xpath("//a[@href = '/delete_account']")).click();
 
-        return this;
+        return new DeleteAccountPage(getDriver());
     }
 }
