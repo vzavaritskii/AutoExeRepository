@@ -1,5 +1,6 @@
 package exercise.automation.common;
 
+import exercise.automation.page.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -34,6 +35,7 @@ public abstract class BaseTest {
          */
     }
 
+
     @AfterMethod
     protected void afterMethod() {
         if (driver != null) {
@@ -44,7 +46,42 @@ public abstract class BaseTest {
         }
     }
 
+
     protected WebDriver getDriver() {
         return driver;
+    }
+
+
+    protected void createTestUserAccount() {
+        new HomePage(getDriver())
+                .clickSignUp()
+                .setNewUserName()
+                .setNewUserEmail()
+                .clickSignupButton()
+                .setPassword()
+                .setDayOfBirth()
+                .setMonthOfBirth()
+                .setYearOfBirth()
+                .toggleNewsletterCheckbox()
+                .toggleSpecialOffersCheckbox()
+                .setFirstName()
+                .setLastName()
+                .setAddress1()
+                .setCountry()
+                .setState()
+                .setCity()
+                .setZipCode()
+                .setMobileNumber()
+                .clickCreateAccount();
+    }
+
+
+    protected void deleteTestUserAccount() {
+        new HomePage(getDriver())
+                .clickSignUp()
+                .setLogin()
+                .setPassword()
+                .clickLoginButton()
+                .clickDeleteAccount();
     }
 }
