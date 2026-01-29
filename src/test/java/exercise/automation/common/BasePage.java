@@ -1,6 +1,8 @@
 package exercise.automation.common;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -8,38 +10,23 @@ import java.time.Duration;
 public abstract class BasePage {
 
     private final WebDriver driver;
+    private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(5);
 
-    private WebDriverWait wait2;
-    private WebDriverWait wait5;
-    private WebDriverWait wait10;
-
-    public BasePage(WebDriver driver) {
+    protected BasePage(WebDriver driver) {
         this.driver = driver;
     }
 
-    protected WebDriver getDriver() {
-        return driver;
+
+    protected void waitUntilVisible(By locator, Duration timeout) {
+        new WebDriverWait(driver, timeout)
+                .until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    protected WebDriverWait getWait2() {
-        if (wait2 == null) {
-            wait2 = new WebDriverWait(getDriver(), Duration.ofSeconds(2));
-        }
 
-        return wait2;
+    protected void waitUntilVisible(By locator) {
+        waitUntilVisible(locator, DEFAULT_TIMEOUT);
     }
-    protected WebDriverWait getWait5() {
-        if (wait5 == null) {
-            wait5 = new WebDriverWait(getDriver(), Duration.ofSeconds(2));
-        }
 
-        return wait5;
-    }
-    protected WebDriverWait getWait10() {
-        if (wait10 == null) {
-            wait10 = new WebDriverWait(getDriver(), Duration.ofSeconds(2));
-        }
 
-        return wait10;
-    }
+    protected WebDriver getDriver() { return driver; }
 }

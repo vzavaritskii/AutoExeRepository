@@ -57,4 +57,11 @@ public class LoginPage extends BasePage {
 
         return new HomePage(getDriver());
     }
+
+
+    public HomePage clickGoToHomePage() {
+        getDriver().findElement(By.xpath("//img[@src = '/static/images/home/logo.png']")).click();
+
+        return new HomePage(getDriver());
+    }
 }

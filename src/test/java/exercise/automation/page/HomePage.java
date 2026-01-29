@@ -21,4 +21,11 @@ public class HomePage extends BasePage {
 
         return new DeleteAccountPage(getDriver());
     }
+
+
+    public LoginPage clickLogout() {
+        getDriver().findElement(By.xpath("//a[@href = '/logout']")).click();
+
+        return new LoginPage(getDriver());
+    }
 }

@@ -37,4 +37,16 @@ public class TestClass extends BaseTest {
         Assert.assertEquals(getDriver().findElement(By.xpath("//h2[@data-qa = 'account-deleted']")).getText(),
                 "ACCOUNT DELETED!");
     }
+
+
+    @Test
+    // Test Case 2: Login User with correct email and password
+    public void logUserWithCorrEmailAndPass() {
+        new HomePage(getDriver())
+                .clickSignUp()
+                .setLogin()
+                .setPassword()
+                .clickLoginButton()
+                .clickDeleteAccount();
+    }
 }
