@@ -69,7 +69,7 @@ public class TestClass extends BaseTest {
                 .setLogin()
                 .setPassword()
                 .clickLoginButton();
-        Assert.assertTrue(new LoginPage(getDriver()).isErrorMessagePresent());
+        Assert.assertTrue(new LoginPage(getDriver()).isLoginErrorMessagePresent());
     }
 
 
@@ -87,5 +87,20 @@ public class TestClass extends BaseTest {
 
         Assert.assertTrue(getDriver().getCurrentUrl()
                 .contains("login"));
+    }
+
+
+    @Test
+    // Test Case 5: Register User with existing email
+    public void regUserWithExistEmail() {
+        new Precondition(getDriver()).testAccountPresent();
+
+        new HomePage(getDriver())
+                .clickSignUp()
+                .setNewUserName()
+                .setNewUserEmail()
+                .clickSignupButton();
+
+        Assert.assertTrue(new LoginPage(getDriver()).isSignupErrorMessagePresent());
     }
 }
