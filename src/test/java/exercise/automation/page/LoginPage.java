@@ -3,8 +3,13 @@ package exercise.automation.page;
 import exercise.automation.common.BasePage;
 import exercise.automation.common.TestData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.bidi.log.Log;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage extends BasePage {
 
@@ -63,5 +68,15 @@ public class LoginPage extends BasePage {
         getDriver().findElement(By.xpath("//img[@src = '/static/images/home/logo.png']")).click();
 
         return new HomePage(getDriver());
+    }
+
+
+    public boolean isErrorMessagePresent() {
+        try {
+            waitUntilVisible(By.xpath("//p[contains(text(), 'Your email or password is incorrect!')]"));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
     }
 }

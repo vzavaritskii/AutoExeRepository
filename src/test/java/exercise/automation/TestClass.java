@@ -3,6 +3,7 @@ package exercise.automation;
 import exercise.automation.common.BaseTest;
 import exercise.automation.common.Precondition;
 import exercise.automation.page.HomePage;
+import exercise.automation.page.LoginPage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -55,5 +56,19 @@ public class TestClass extends BaseTest {
                 .clickDeleteAccount();
         Assert.assertEquals(getDriver().findElement(By.xpath("//h2[@data-qa = 'account-deleted']")).getText(),
                 "ACCOUNT DELETED!");
+    }
+
+
+    @Test
+    // Test Case 3: Login User with incorrect email and password
+    public void logUserWithIncorrEmailAndPass() {
+        new Precondition(getDriver()).testAccountAbsent();
+
+        new HomePage(getDriver())
+                .clickSignUp()
+                .setLogin()
+                .setPassword()
+                .clickLoginButton();
+        Assert.assertTrue(new LoginPage(getDriver()).isErrorMessagePresent());
     }
 }
