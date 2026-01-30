@@ -6,9 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 public class DeleteAccountPage extends BasePage {
 
-    private static final By CONTINUE_BUTTON =
-        By.xpath("//a[@data-qa = 'continue-button']");
-
 
     public DeleteAccountPage(WebDriver driver) {
         super(driver);
@@ -16,7 +13,7 @@ public class DeleteAccountPage extends BasePage {
 
 
     public HomePage clickContinueButton() {
-        getDriver().findElement(CONTINUE_BUTTON).click();
+        getDriver().findElement(By.xpath("//a[@data-qa = 'continue-button']")).click();
 
         return new HomePage(getDriver());
     }

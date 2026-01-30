@@ -1,6 +1,7 @@
 package exercise.automation;
 
 import exercise.automation.common.BaseTest;
+import exercise.automation.common.Precondition;
 import exercise.automation.page.HomePage;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -11,6 +12,8 @@ public class TestClass extends BaseTest {
     @Test
     // Test Case 1: Register User
     public void registerUser() {
+        new Precondition(getDriver()).testAccountAbsent();
+
         new HomePage(getDriver())
                 .clickSignUp()
                 .setNewUserName()
@@ -42,6 +45,8 @@ public class TestClass extends BaseTest {
     @Test
     // Test Case 2: Login User with correct email and password
     public void logUserWithCorrEmailAndPass() {
+        new Precondition(getDriver()).testAccountPresent();
+
         new HomePage(getDriver())
                 .clickSignUp()
                 .setLogin()

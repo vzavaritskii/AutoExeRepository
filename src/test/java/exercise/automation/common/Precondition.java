@@ -18,6 +18,7 @@ public class Precondition {
 
         if (!driver.getCurrentUrl().contains("login")) {
             new HomePage(driver).clickDeleteAccount().clickContinueButton();
+
         }
     }
 

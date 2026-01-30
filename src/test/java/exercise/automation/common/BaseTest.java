@@ -16,19 +16,6 @@ public abstract class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://automationexercise.com/");
-
-        /*
-        new HomePage(driver)
-                .clickSignUp()
-                .setLogin()
-                .setPassword()
-                .clickLoginButton();
-
-        if (driver.getCurrentUrl().equals("https://automationexercise.com/")) {
-            driver.findElement(By.xpath("//a[@href = '/delete_account']")).click();
-        }
-
-         */
     }
 
 

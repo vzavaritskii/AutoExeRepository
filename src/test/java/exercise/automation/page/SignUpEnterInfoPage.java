@@ -12,20 +12,6 @@ public class SignUpEnterInfoPage extends BasePage {
         super(driver);
     }
 
-    public SignUpEnterInfoPage setTitleMr() {
-        getDriver().findElement(By.xpath("//input[@id='id_gender1']")).click();
-
-        return this;
-    }
-
-
-    public SignUpEnterInfoPage setTitleMrs() {
-        getDriver().findElement(By.xpath("//input[@id='id_gender2']")).click();
-
-        return this;
-    }
-
-
     public SignUpEnterInfoPage setPassword() {
         getDriver().findElement(By.xpath("//input[@data-qa='password']"))
                 .sendKeys(TestData.PASSWORD);
