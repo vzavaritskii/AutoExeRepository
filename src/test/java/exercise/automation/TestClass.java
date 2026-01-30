@@ -53,5 +53,7 @@ public class TestClass extends BaseTest {
                 .setPassword()
                 .clickLoginButton()
                 .clickDeleteAccount();
+        Assert.assertEquals(getDriver().findElement(By.xpath("//h2[@data-qa = 'account-deleted']")).getText(),
+                "ACCOUNT DELETED!");
     }
 }

@@ -13,6 +13,7 @@ public class SignUpEnterInfoPage extends BasePage {
     }
 
     public SignUpEnterInfoPage setPassword() {
+        waitUntilVisible(By.xpath("//input[@data-qa='password']"));
         getDriver().findElement(By.xpath("//input[@data-qa='password']"))
                 .sendKeys(TestData.PASSWORD);
 

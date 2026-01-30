@@ -10,6 +10,7 @@ public class HomePage extends BasePage {
 
 
     public LoginPage clickSignUp() {
+        waitUntilVisible(By.xpath("//a[@href='/login']"));
         getDriver().findElement(By.xpath("//a[@href='/login']")).click();
 
         return new LoginPage(getDriver());
