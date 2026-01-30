@@ -71,4 +71,21 @@ public class TestClass extends BaseTest {
                 .clickLoginButton();
         Assert.assertTrue(new LoginPage(getDriver()).isErrorMessagePresent());
     }
+
+
+    @Test
+    // Test Case 4: Logout User
+    public void logoutUser() {
+        new Precondition(getDriver()).testAccountPresent();
+
+        new HomePage(getDriver())
+                .clickSignUp()
+                .setLogin()
+                .setPassword()
+                .clickLoginButton()
+                .clickLogout();
+
+        Assert.assertTrue(getDriver().getCurrentUrl()
+                .contains("login"));
+    }
 }
