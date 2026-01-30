@@ -5,11 +5,6 @@ import exercise.automation.common.TestData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.bidi.log.Log;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class LoginPage extends BasePage {
 
@@ -27,8 +22,7 @@ public class LoginPage extends BasePage {
 
 
     public LoginPage setNewUserName() {
-        final String NEW_USER_NAME = "newTestUserName";
-        getDriver().findElement(By.xpath("//input[@data-qa='signup-name']")).sendKeys(NEW_USER_NAME);
+        getDriver().findElement(By.xpath("//input[@data-qa='signup-name']")).sendKeys(TestData.NEW_USER_NAME);
 
         return new LoginPage(getDriver());
     }
@@ -71,9 +65,19 @@ public class LoginPage extends BasePage {
     }
 
 
-    public boolean isErrorMessagePresent() {
+    public boolean isLoginErrorMessagePresent() {
         try {
             waitUntilVisible(By.xpath("//p[contains(text(), 'Your email or password is incorrect!')]"));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+
+    public boolean isSignupErrorMessagePresent() {
+        try {
+            waitUntilVisible(By.xpath("//p[contains(text(), 'Email Address already exist!')]"));
             return true;
         } catch (TimeoutException e) {
             return false;
