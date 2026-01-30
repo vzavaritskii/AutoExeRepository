@@ -10,6 +10,7 @@ public class HomePage extends BasePage {
 
 
     public LoginPage clickSignUp() {
+        waitUntilVisible(By.xpath("//a[@href='/login']"));
         getDriver().findElement(By.xpath("//a[@href='/login']")).click();
 
         return new LoginPage(getDriver());
@@ -20,5 +21,12 @@ public class HomePage extends BasePage {
         getDriver().findElement(By.xpath("//a[@href = '/delete_account']")).click();
 
         return new DeleteAccountPage(getDriver());
+    }
+
+
+    public LoginPage clickLogout() {
+        getDriver().findElement(By.xpath("//a[@href = '/logout']")).click();
+
+        return new LoginPage(getDriver());
     }
 }
