@@ -29,4 +29,11 @@ public class HomePage extends BasePage {
 
         return new LoginPage(getDriver());
     }
+
+
+    public ContactUsPage clickContactUs() {
+        getDriver().findElement(By.xpath("//a[@href = '/contact_us']")).click();
+
+        return new ContactUsPage(getDriver());
+    }
 }

@@ -2,6 +2,7 @@ package exercise.automation;
 
 import exercise.automation.common.BaseTest;
 import exercise.automation.common.Precondition;
+import exercise.automation.page.ContactUsPage;
 import exercise.automation.page.HomePage;
 import exercise.automation.page.LoginPage;
 import org.openqa.selenium.By;
@@ -102,5 +103,26 @@ public class TestClass extends BaseTest {
                 .clickSignupButton();
 
         Assert.assertTrue(new LoginPage(getDriver()).isSignupErrorMessagePresent());
+    }
+
+
+    @Test
+    // Test Case 6: Contact Us Form
+    public void contactUsForm() throws InterruptedException {
+
+        new HomePage(getDriver())
+                .clickContactUs()
+                .setName()
+                .setEmail()
+                .setSubject()
+                .setMessage()
+                .uploadFile()
+                .clickSubmitButton();
+
+        Assert.assertTrue(getDriver()
+                .findElement(By.xpath("//div[@class = 'status alert alert-success']")).getText()
+                .contains("Success! Your details have been submitted successfully."));
+
+        new ContactUsPage(getDriver()).clickGreenHomeButtonAfterSentMessage();
     }
 }
