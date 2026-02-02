@@ -36,4 +36,11 @@ public class HomePage extends BasePage {
 
         return new ContactUsPage(getDriver());
     }
+
+
+    public TestCasePage clickTestCasesButton() {
+        waitUntilVisible(By.xpath("//div[@class = 'item active']//button[contains(text(), 'Test Cases')]")).click();
+
+        return new TestCasePage(getDriver());
+    }
 }

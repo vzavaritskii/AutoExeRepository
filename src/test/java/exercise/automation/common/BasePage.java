@@ -2,6 +2,7 @@ package exercise.automation.common;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,14 +18,14 @@ public abstract class BasePage {
     }
 
 
-    protected void waitUntilVisible(By locator, Duration timeout) {
-        new WebDriverWait(driver, timeout)
+    protected WebElement waitUntilVisible(By locator, Duration timeout) {
+        return new WebDriverWait(driver, timeout)
                 .until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
 
-    protected void waitUntilVisible(By locator) {
-        waitUntilVisible(locator, DEFAULT_TIMEOUT);
+    protected WebElement waitUntilVisible(By locator) {
+        return waitUntilVisible(locator, DEFAULT_TIMEOUT);
     }
 
 

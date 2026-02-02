@@ -108,7 +108,7 @@ public class TestClass extends BaseTest {
 
     @Test
     // Test Case 6: Contact Us Form
-    public void contactUsForm() throws InterruptedException {
+    public void contactUsForm() {
 
         new HomePage(getDriver())
                 .clickContactUs()
@@ -124,5 +124,14 @@ public class TestClass extends BaseTest {
                 .contains("Success! Your details have been submitted successfully."));
 
         new ContactUsPage(getDriver()).clickGreenHomeButtonAfterSentMessage();
+    }
+
+
+    @Test
+    // Test Case 7: Verify Test Cases Page
+    public void verifyTestCasePage() {
+        new HomePage(getDriver())
+                .clickTestCasesButton();
+        Assert.assertTrue(getDriver().getCurrentUrl().contains("test_cases"));
     }
 }
