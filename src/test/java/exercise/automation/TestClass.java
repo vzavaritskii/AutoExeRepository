@@ -134,4 +134,16 @@ public class TestClass extends BaseTest {
                 .clickTestCasesButton();
         Assert.assertTrue(getDriver().getCurrentUrl().contains("test_cases"));
     }
+
+
+    @Test
+    // Test Case 8: Verify All Products and product detail page
+    public void verifyAllProductsPage() {
+        new HomePage(getDriver())
+                .clickProductsPage();
+
+        Assert.assertTrue(getDriver()
+                .findElements(By.xpath("//div[@class = 'product-image-wrapper']"))
+                .size() > 0);
+    }
 }

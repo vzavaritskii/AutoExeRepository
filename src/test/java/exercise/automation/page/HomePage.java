@@ -43,4 +43,11 @@ public class HomePage extends BasePage {
 
         return new TestCasePage(getDriver());
     }
+
+
+    public ProductsPage clickProductsPage() {
+        getDriver().findElement(By.xpath("//a[@href = '/products']")).click();
+
+        return new ProductsPage(getDriver());
+    }
 }
